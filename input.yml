@@ -1,0 +1,136 @@
+disable_slow_controls: false
+container_host: false
+min_reuse_generations: 5
+min_len: 15
+grub_uefi_main_cfg: "/boot/efi/EFI/redhat/grub.cfg"
+grub_uefi_user_boot_files: ["/boot/efi/EFI/redhat/user.cfg"]
+exempt_home_users: ["vagrant"]
+non_interactive_shells:
+  - "/sbin/nologin"
+  - "/sbin/halt"
+  - "/sbin/shutdown"
+  - "/bin/false"
+  - "/bin/sync"
+  - "/bin/true"
+known_system_accounts: 
+  - "root"
+  - "bin"
+  - "daemon"
+  - "adm"
+  - "lp"
+  - "sync"
+  - "shutdown"
+  - "halt"
+  - "mail"
+  - "operator"
+  - "nobody"
+  - "systemd-bus-proxy"
+  - "dbus"
+  - "polkitd"
+  - "postfix"
+  - "sssd"
+  - "chrony"
+  - "systemd-network"
+  - "sshd"
+  - "ntp"
+user_accounts: ["vagrant"]
+log_pkg_path: "/etc/rsyslog.conf"
+grub_main_cfg: "/boot/grub2/grub.cfg"
+grub_user_boot_files:
+  - "/boot/grub2/user.cfg"
+ipv4_enabled: true
+ipv6_enabled: true
+camera_installed: true
+bluetooth_installed: true
+known_system_accounts:
+  - 'root'
+  - 'bin'
+  - 'daemon'
+  - 'adm'
+  - 'lp'
+  - 'sync'
+  - 'shutdown'
+  - 'halt'
+  - 'mail'
+  - 'operator'
+  - 'nobody'
+  - 'systemd-bus-proxy'
+  - 'dbus'
+  - 'polkitd'
+  - 'postfix'
+  - 'sssd'
+  - 'chrony'
+  - 'systemd-network'
+  - 'sshd'
+  - 'ntp'
+smart_card_status: 'enabled'
+file_integrity_tool: 'aide'
+authoritative_timeserver: 0.us.pool.ntp.mil
+non_removable_media_fs: ["/", "/tmp", "none", "/home"]
+private_key_files: []
+root_ca_file: "/etc/sssd/pki/sssd_auth_ca_db.pem"
+unsuccessful_attempts: 3
+system_inactivity_timeout: 1200
+max_retry: 3
+difok: 8
+days_of_inactivity: 35
+temporary_accounts: []
+banner_message_text_cli: "You are accessing a U.S. Government (USG) Information System (IS) that is \
+  provided for USG-authorized use only. By using this IS (which includes any \
+  device attached to this IS), you consent to the following conditions: -The USG \
+  routinely intercepts and monitors communications on this IS for purposes \
+  including, but not limited to, penetration testing, COMSEC monitoring, network \
+  operations and defense, personnel misconduct (PM), law enforcement (LE), and \
+  counterintelligence (CI) investigations. -At any time, the USG may inspect and \
+  seize data stored on this IS. -Communications using, or data stored on, this \
+  IS are not private, are subject to routine monitoring, interception, and \
+  search, and may be disclosed or used for any USG-authorized purpose. -This IS \
+  includes security measures (e.g., authentication and access controls) to \
+  protect USG interests--not for your personal benefit or privacy. \
+  -Notwithstanding the above, using this IS does not constitute consent to PM, \
+  LE or CI investigative searching or monitoring of the content of privileged \
+  communications, or work product, related to personal representation or \
+  services by attorneys, psychotherapists, or clergy, and their assistants. Such \
+  communications and work product are private and confidential. See User \
+  Agreement for details."
+banner_message_text_ral: "You are accessing a U.S. Government (USG) Information System (IS) that is \
+  provided for USG-authorized use only. By using this IS (which includes any \
+  device attached to this IS), you consent to the following conditions: -The USG \
+  routinely intercepts and monitors communications on this IS for purposes \
+  including, but not limited to, penetration testing, COMSEC monitoring, network \
+  operations and defense, personnel misconduct (PM), law enforcement (LE), and \
+  counterintelligence (CI) investigations. -At any time, the USG may inspect and \
+  seize data stored on this IS. -Communications using, or data stored on, this \
+  IS are not private, are subject to routine monitoring, interception, and \
+  search, and may be disclosed or used for any USG-authorized purpose. -This IS \
+  includes security measures (e.g., authentication and access controls) to \
+  protect USG interests--not for your personal benefit or privacy. \
+  -Notwithstanding the above, using this IS does not constitute consent to PM, \
+  LE or CI investigative searching or monitoring of the content of privileged \
+  communications, or work product, related to personal representation or \
+  services by attorneys, psychotherapists, or clergy, and their assistants. Such \
+  communications and work product are private and confidential. See User \
+  Agreement for details."
+banner_message_text_gui: "You are accessing a U.S. Government (USG) Information System (IS) that is \
+  provided for USG-authorized use only. By using this IS (which includes any \
+  device attached to this IS), you consent to the following conditions: -The USG \
+  routinely intercepts and monitors communications on this IS for purposes \
+  including, but not limited to, penetration testing, COMSEC monitoring, network \
+  operations and defense, personnel misconduct (PM), law enforcement (LE), and \
+  counterintelligence (CI) investigations. -At any time, the USG may inspect and \
+  seize data stored on this IS. -Communications using, or data stored on, this \
+  IS are not private, are subject to routine monitoring, interception, and \
+  search, and may be disclosed or used for any USG-authorized purpose. -This IS \
+  includes security measures (e.g., authentication and access controls) to \
+  protect USG interests--not for your personal benefit or privacy. \
+  -Notwithstanding the above, using this IS does not constitute consent to PM, \
+  LE or CI investigative searching or monitoring of the content of privileged \
+  communications, or work product, related to personal representation or \
+  services by attorneys, psychotherapists, or clergy, and their assistants. Such \
+  communications and work product are private and confidential. See User \
+  Agreement for details."
+maxlogins_limit: '10'
+unsuccessful_attempts: 3
+fail_interval: 900
+lockout_time: 604800
+log_directory: '/var/log/faillock'
