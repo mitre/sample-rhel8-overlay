@@ -1,6 +1,6 @@
-# (WIP) sample-rhel8-overlay
+# sample-rhel8-overlay
 
-Example InSpec profile overlay to validate the secure configuration of Red Hat Enterprise Linux 8 against DISA's Red Hat Enterprise Linux 8.x STIG.
+Sample overlay for the baseline InSpec profile at https://github.com/CMSgov/redhat-enterprise-linux-8-stig-baseline with modifications based Our Project's different policy compliance baseline requirements. The baseline InSpec profile is used validate the secure configuration of Red Hat Enterprise Linux 8 against DISA's Red Hat Enterprise Linux 8.x STIG.
 
 ## Getting Started  
 It is intended and recommended that InSpec and this profile overlay be run from a __"runner"__ host (such as a DevOps orchestration server, an administrative management system, or a developer's workstation/laptop) against the target remotely over __ssh__.
