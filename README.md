@@ -14,316 +14,192 @@ Latest versions and installation options are available at the [InSpec](http://in
 The following inputs may be configured in an inputs ".yml" file for the profile to run correctly for your specific environment. More information about InSpec inputs can be found in the [InSpec Profile Documentation](https://www.inspec.io/docs/reference/profiles/).
 
 ```
- - name: disable_slow_controls
-    description: Controls that are known to consistently have long run times can be disabled with this attribute
-    type: Boolean
-    value: false
+# Used by InSpec check SV-230309
+# InSpec Tests that are known to consistently have long run times can be disabled with this attribute
+# Description: Controls that are known to consistently have long run times can be disabled with this attribute
+# Type: Boolean
+# (default value): false
+disable_slow_controls: 
 
-  #SV-230548
-  - name: container_host
-    description: Flag to designate if the target is a container host
-    type: Boolean
-    value: false
+# Used by InSpec check SV-230548
+# Description: Flag to designate if the target is a container host
+# Type: Boolean
+# (default value): false
+container_host:
 
-  # SV-230368
-  - name: min_reuse_generations
-    description: Number of reuse generations
-    type: Numeric
-    value: 5
+# Used by InSpec check SV-230234
+# Description: Main grub boot config file
+# Type: String
+# (default value): "/boot/efi/EFI/redhat/grub.cfg"
+grub_uefi_main_cfg:
 
-  # SV-230369, SV-230370
-  - name: min_len
-    description: Minimum number of characters for a new password
-    type: Numeric
-    value: 15
+# Used by InSpec check SV-230234
+# Description: Grub boot config files
+# Type: Array
+# (default value): ["/boot/efi/EFI/redhat/user.cfg"]
+grub_uefi_user_boot_files: []
 
-  # SV-230234
-  - name: grub_uefi_main_cfg
-    description: Main grub boot config file
-    type: String
-    value: "/boot/efi/EFI/redhat/grub.cfg"
+# Used by InSpec check SV-230317, SV-230321, SV-230322, SV-230325, SV-230328, SV-230309, SV-230320
+# Description: Users exempt from home directory-based controls in array format
+# Type: Array
+# (default value): ["vagrant"]
+exempt_home_users: []
 
-  - name: grub_uefi_user_boot_files
-    description: Grub boot config files
-    type: Array
-    value: ["/boot/efi/EFI/redhat/user.cfg"]
+# Used by InSpec check SV-230317, SV-230321, SV-230322, SV-230325, SV-230328, SV-230309, SV-230320
+# Description: These shells do not allow a user to login
+# Type: Array
+# (default value):
+#      - "/sbin/nologin"
+#      - "/sbin/halt"
+#      - "/sbin/shutdown"
+#      - "/bin/false"
+#      - "/bin/sync"
+#      - "/bin/true"
+non_interactive_shells: []
 
-  # SV-230317, SV-230321, SV-230322, SV-230325, SV-230328, SV-230309, SV-230320
-  - name: exempt_home_users
-    description: Users exempt from home directory-based controls in array format
-    type: Array
-    value: ["vagrant"]
+# Used by InSpec check SV-230379
+# Description: System accounts that support approved system activities.
+# Type: Array
+# (default value):
+#      - "root"
+#      - "bin"
+#      - "daemon"
+#      - "adm"
+#      - "lp"
+#      - "sync"
+#      - "shutdown"
+#      - "halt"
+#      - "mail"
+#      - "operator"
+#      - "nobody"
+#      - "systemd-bus-proxy"
+#      - "dbus"
+#      - "polkitd"
+#      - "postfix"
+#      - "sssd"
+#      - "chrony"
+#      - "systemd-network"
+#      - "sshd"
+#      - "ntp"
+known_system_accounts: []
 
-  - name: non_interactive_shells
-    description: These shells do not allow a user to login
-    type: Array
-    value:
-      - "/sbin/nologin"
-      - "/sbin/halt"
-      - "/sbin/shutdown"
-      - "/bin/false"
-      - "/bin/sync"
-      - "/bin/true"
+# Description: Accounts of known managed users
+# Type: Array
+# (default value): ["vagrant"]
+user_accounts: []
 
-  # SV-230379
-  - name: known_system_accounts
-    description: System accounts that support approved system activities.
-    type: Array
-    value:
-      - "root"
-      - "bin"
-      - "daemon"
-      - "adm"
-      - "lp"
-      - "sync"
-      - "shutdown"
-      - "halt"
-      - "mail"
-      - "operator"
-      - "nobody"
-      - "systemd-bus-proxy"
-      - "dbus"
-      - "polkitd"
-      - "postfix"
-      - "sssd"
-      - "chrony"
-      - "systemd-network"
-      - "sshd"
-      - "ntp"
+# Used by InSpec check SV-230379
+# Description: The path to the logging package
+# Type: String
+# (default value): "/etc/rsyslog.conf"
+log_pkg_path:
 
-  - name: user_accounts
-    description: Accounts of known managed users
-    type: Array
-    value: ["vagrant"]
+# Used by InSpec check SV-230235
+# Description: Main grub boot config file
+# Type: String
+# (default value): "/boot/grub2/grub.cfg"
+grub_main_cfg: 
 
-  # SV-230379
-  - name: log_pkg_path
-    description: The path to the logging package
-    type: String
-    value: "/etc/rsyslog.conf"
+# Description: Grub boot config files
+# Type: Array
+# (default value):["/boot/grub2/user.cfg"]
+grub_user_boot_files: []
 
-  # SV-230235
-  - name: grub_main_cfg
-    description: Main grub boot config file
-    type: String
-    value: "/boot/grub2/grub.cfg"
+# Used by InSpec check SV-230537
+# Description: Set to 'true' if IPv4 is enabled on the system.
+# Type: Boolean
+# (default value): true
+ipv4_enabled:
 
-  - name: grub_user_boot_files
-    description: Grub boot config files
-    type: Array
-    value:
-      - "/boot/grub2/user.cfg"
+# Used by InSpec check SV-230537
+# Description: Set to 'true' if IPv6 is enabled on the system.
+# Type: Boolean
+# (default value): true
+ipv6_enabled:
 
-  # SV-230537
-  - name: ipv4_enabled
-    description: Set to 'true' if IPv4 is enabled on the system.
-    type: Boolean
-    value: true
+# Used by InSpec check SV-230493
+# Description: Device or system does not have a camera installed.
+# Type: Boolean
+# (default value): true
+camera_installed:
 
-  # SV-230537
-  - name: ipv6_enabled
-    description: Set to 'true' if IPv6 is enabled on the system.
-    type: Boolean
-    value: true
+# Used by InSpec check SV-230503
+# Description: 'Device or operating system has a Bluetooth adapter installed'
+# Type: Boolean
+# (default value): true
+bluetooth_installed:
 
-  # SV-230493
-  - name: camera_installed
-    description: Device or system does not have a camera installed.
-    type: Boolean
-    value: true
+# Used by InSpec check SV-230242
+# Description: System accounts that support approved system activities.
+# Type: Array
+# (default value): 
+#      - 'root'
+#      - 'bin'
+#      - 'daemon'
+#      - 'adm'
+#      - 'lp'
+#      - 'sync'
+#      - 'shutdown'
+#      - 'halt'
+#      - 'mail'
+#      - 'operator'
+#      - 'nobody'
+#      - 'systemd-bus-proxy'
+#      - 'dbus'
+#      - 'polkitd'
+#      - 'postfix'
+#      - 'sssd'
+#      - 'chrony'
+#      - 'systemd-network'
+#      - 'sshd'
+#      - 'ntp'
+known_system_accounts: []
 
-  # SV-230503
-  - name: bluetooth_installed
-    description: 'Device or operating system has a Bluetooth adapter installed'
-    type: Boolean
-    value: true
+# Description: Smart card status (enabled or disabled)
+# Type: String
+# (default value): 'enabled'
+smart_card_status: 
 
-  # SV-230242
-  - name: known_system_accounts
-    description: System accounts that support approved system activities.
-    type: Array
-    value: 
-      - 'root'
-      - 'bin'
-      - 'daemon'
-      - 'adm'
-      - 'lp'
-      - 'sync'
-      - 'shutdown'
-      - 'halt'
-      - 'mail'
-      - 'operator'
-      - 'nobody'
-      - 'systemd-bus-proxy'
-      - 'dbus'
-      - 'polkitd'
-      - 'postfix'
-      - 'sssd'
-      - 'chrony'
-      - 'systemd-network'
-      - 'sshd'
-      - 'ntp'
+# Used by InSpec check SV-230263
+# Description: Name of integrity checking tool
+# Type: String
+# (default value): 'aide'
+file_integrity_tool: 
 
-  - name: smart_card_status
-    description: Smart card status (enabled or disabled)
-    type: String
-    value: 'enabled'
+# Used by InSpec check SV-230484
+# Description: Timeserver used in /etc/chrony.conf
+# Type: String
+# (default value): 0.us.pool.ntp.mil
+authoritative_timeserver: 
 
-  # SV-230263
-  - name: file_integrity_tool
-    description: Name of tool
-    type: String
-    value: 'aide'
-  # SV-230484
-  - name: authoritative_timeserver
-    description: Timeserver used in /etc/chrony.conf
-    type: String
-    value: 0.us.pool.ntp.mil
+# Used by InSpec check SV-230537
+# Description: File systems listed in /etc/fstab which are not removable media devices
+# Type: Array
+# (default value): ["/", "/tmp", "none", "/home"]
+non_removable_media_fs: []
 
-  # SV-230537
-  - name: non_removable_media_fs
-    description: File systems listed in /etc/fstab which are not removable media devices
-    type: Array
-    value: ["/", "/tmp", "none", "/home"]
+# Used by InSpec check SV-230230
+# Description: List of full paths to private key files on the system
+# Type: Array
+# (default value): []
+private_key_files: []
 
-  # SV-230230
-  - name: private_key_files
-    description: List of full paths to private key files on the system
-    type: Array
-    value: []
+# Used by InSpec check SV-230229
+# Description: Path to an accepted trust anchor certificate file (DoD)
+# Type: String
+# (default value): "/etc/sssd/pki/sssd_auth_ca_db.pem"
+root_ca_file: 
 
-  #SV-230229
-  - name: root_ca_file
-    description: Path to an accepted trust anchor certificate file (DoD)
-    type: String
-    value: "/etc/sssd/pki/sssd_auth_ca_db.pem"
+# Description: Temporary user accounts
+# Type: Array
+# (default value): []
+temporary_accounts: []
 
-  #SV-230333
-  - name: unsuccessful_attempts
-    description: Maximum number of unsuccessful attempts before lockout
-    type: Numeric
-    value: 3
+# Description: Documented tally log directory
+# Type: String
+# (default value): '/var/log/faillock'
+log_directory: 
 
-  #SV-230353
-  - name: system_inactivity_timeout
-    description: Maximum system inactivity timeout (time in seconds).
-    type: Numeric
-    value: 900
-
-  #SV-230356
-  - name: max_retry
-    description: Maximum number of retry attempts for login
-    type: Numeric
-    value: 3
-
-  #SV-230363
-  - name: difok
-    description: Minimum number of characters that must be different from previous password
-    type: Numeric
-    value: 8
-
-  #SV-230373
-  - name: days_of_inactivity
-    description: Maximum number of days if account inactivity before account lockout
-    type: Numeric
-    value: 35
-
-  - name: temporary_accounts
-    description: Temporary user accounts
-    type: Array
-    value: []
-
-  - name: banner_message_text_cli
-    description: Banner message text for command line interface logins.
-    type: String
-    value: "You are accessing a U.S. Government (USG) Information System (IS) that is \
-    provided for USG-authorized use only. By using this IS (which includes any \
-    device attached to this IS), you consent to the following conditions: -The USG \
-    routinely intercepts and monitors communications on this IS for purposes \
-    including, but not limited to, penetration testing, COMSEC monitoring, network \
-    operations and defense, personnel misconduct (PM), law enforcement (LE), and \
-    counterintelligence (CI) investigations. -At any time, the USG may inspect and \
-    seize data stored on this IS. -Communications using, or data stored on, this \
-    IS are not private, are subject to routine monitoring, interception, and \
-    search, and may be disclosed or used for any USG-authorized purpose. -This IS \
-    includes security measures (e.g., authentication and access controls) to \
-    protect USG interests--not for your personal benefit or privacy. \
-    -Notwithstanding the above, using this IS does not constitute consent to PM, \
-    LE or CI investigative searching or monitoring of the content of privileged \
-    communications, or work product, related to personal representation or \
-    services by attorneys, psychotherapists, or clergy, and their assistants. Such \
-    communications and work product are private and confidential. See User \
-    Agreement for details."
-
-
-  - name: banner_message_text_ral
-    description: Banner message text for remote access logins.
-    type: String
-    value: "You are accessing a U.S. Government (USG) Information System (IS) that is \
-    provided for USG-authorized use only. By using this IS (which includes any \
-    device attached to this IS), you consent to the following conditions: -The USG \
-    routinely intercepts and monitors communications on this IS for purposes \
-    including, but not limited to, penetration testing, COMSEC monitoring, network \
-    operations and defense, personnel misconduct (PM), law enforcement (LE), and \
-    counterintelligence (CI) investigations. -At any time, the USG may inspect and \
-    seize data stored on this IS. -Communications using, or data stored on, this \
-    IS are not private, are subject to routine monitoring, interception, and \
-    search, and may be disclosed or used for any USG-authorized purpose. -This IS \
-    includes security measures (e.g., authentication and access controls) to \
-    protect USG interests--not for your personal benefit or privacy. \
-    -Notwithstanding the above, using this IS does not constitute consent to PM, \
-    LE or CI investigative searching or monitoring of the content of privileged \
-    communications, or work product, related to personal representation or \
-    services by attorneys, psychotherapists, or clergy, and their assistants. Such \
-    communications and work product are private and confidential. See User \
-    Agreement for details."
-
-  - name: banner_message_text_gui
-    description: Banner message text for graphical user interface logins.
-    type: String
-    value: "You are accessing a U.S. Government (USG) Information System (IS) that is \
-    provided for USG-authorized use only. By using this IS (which includes any \
-    device attached to this IS), you consent to the following conditions: -The USG \
-    routinely intercepts and monitors communications on this IS for purposes \
-    including, but not limited to, penetration testing, COMSEC monitoring, network \
-    operations and defense, personnel misconduct (PM), law enforcement (LE), and \
-    counterintelligence (CI) investigations. -At any time, the USG may inspect and \
-    seize data stored on this IS. -Communications using, or data stored on, this \
-    IS are not private, are subject to routine monitoring, interception, and \
-    search, and may be disclosed or used for any USG-authorized purpose. -This IS \
-    includes security measures (e.g., authentication and access controls) to \
-    protect USG interests--not for your personal benefit or privacy. \
-    -Notwithstanding the above, using this IS does not constitute consent to PM, \
-    LE or CI investigative searching or monitoring of the content of privileged \
-    communications, or work product, related to personal representation or \
-    services by attorneys, psychotherapists, or clergy, and their assistants. Such \
-    communications and work product are private and confidential. See User \
-    Agreement for details."
-
-  - name: maxlogins_limit
-    description: Amount of max logins allowed
-    type: String
-    value: '10'
-
-  - name: unsuccessful_attempts
-    description: number of unsuccessful attempts
-    type: Numeric
-    value: 3
-
-  - name: fail_interval
-    description: Interval of time in which the consecutive failed logon attempts must occur in order for the account to be locked out (time in seconds)
-    type: Numeric
-    value: 900
-
-  - name: lockout_time
-    description: Minimum amount of time account must be locked out after failed logins. This attribute should never be set greater than 604800 (time in seconds).
-    type: Numeric
-    value: 604800
-
-  - name: log_directory
-    description: Documented tally log directory
-    type: String
-    value: '/var/log/faillock'
 ```
 
 ## Running This Overlay Directly from Github
