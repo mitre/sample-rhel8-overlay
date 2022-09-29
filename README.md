@@ -259,10 +259,10 @@ The JSON results output file can be loaded into __[heimdall-lite](https://heimda
 The JSON InSpec results file may also be loaded into a __[full heimdall server](https://github.com/mitre/heimdall)__, allowing for additional functionality such as to store and compare multiple profile runs.
 
 ## Authors
-
+* [Mohamed El-Sharkawi](https://github.com/HackerShark)
 
 ## Special Thanks
-* Eugene Aronne
+* [Eugene Aronne](https://github.com/ejaronne)
 
 ## Contributing and Getting Help
 To report a bug or feature request, please open an [issue](https://github.com/mitre/sample-rhel8-overlay/issues/new).
@@ -271,4 +271,4 @@ To report a bug or feature request, please open an [issue](https://github.com/mi
 This is licensed under the [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) license. 
 
 ### NOTICE
-DISA STIGs are published by DISA IASE, see: https://iase.disa.mil/Pages/privacy_policy.aspx
+DISA STIGs are published at: https://public.cyber.mil/stigs/
